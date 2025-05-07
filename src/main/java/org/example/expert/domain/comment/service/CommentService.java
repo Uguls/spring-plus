@@ -52,7 +52,7 @@ public class CommentService {
 
         List<CommentResponse> dtoList = new ArrayList<>();
         for (Comment comment : commentList) {
-            User user = comment.getUser();
+            User user = comment.getUser(); // N + 1 발생
             CommentResponse dto = new CommentResponse(
                     comment.getId(),
                     comment.getContents(),
