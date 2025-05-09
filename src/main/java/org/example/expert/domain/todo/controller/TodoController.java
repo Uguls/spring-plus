@@ -1,5 +1,7 @@
 package org.example.expert.domain.todo.controller;
 
+import java.time.LocalDateTime;
+
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.example.expert.domain.common.annotation.Auth;
@@ -31,8 +33,8 @@ public class TodoController {
         @RequestParam(defaultValue = "1") int page,
         @RequestParam(defaultValue = "10") int size,
         @RequestParam(required = false) String weather,
-        @RequestParam(required = false) Integer start,
-        @RequestParam(required = false) Integer end
+        @RequestParam(required = false) LocalDateTime start,
+        @RequestParam(required = false) LocalDateTime end
     ) {
         return ResponseEntity.ok(todoService.getTodos(page, size, weather, start, end));
     }
